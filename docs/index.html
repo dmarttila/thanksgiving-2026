@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thanksgiving 2026 Plan</title>
+<meta name="description" content="Shopping list and cooking plan for Thanksgiving dinner for 12, Thursday November 26, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fbf7f1;
+  --surface: #ffffff;
+  --ink: #2b211b;
+  --muted: #74655a;
+  --line: #e7ddd0;
+  --accent: #a3361f;      /* cranberry-brick */
+  --accent-soft: #f6e3da;
+  --gold: #b7791f;
+  --gold-soft: #f8ecd4;
+  --green: #4f6b3a;
+  --green-soft: #e6eedd;
+  --check: #a3361f;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1b1613; --surface: #241e1a; --ink: #f1e9e1; --muted: #b3a597; --line: #3a312a;
+    --accent: #e0775c; --accent-soft: #3a241d; --gold: #e0b062; --gold-soft: #352a19;
+    --green: #a8c48d; --green-soft: #26301f; --check: #e0775c;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1b1613; --surface: #241e1a; --ink: #f1e9e1; --muted: #b3a597; --line: #3a312a;
+  --accent: #e0775c; --accent-soft: #3a241d; --gold: #e0b062; --gold-soft: #352a19;
+  --green: #a8c48d; --green-soft: #26301f; --check: #e0775c;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 16px/1.55 Inter, system-ui, -apple-system, sans-serif;
+}
+h1, h2, h3 { font-family: Fraunces, Georgia, serif; line-height: 1.2; margin: 0; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+
+header.hero { padding: 48px 0 28px; border-bottom: 1px solid var(--line); }
+.eyebrow { color: var(--accent); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+h1 { font-size: clamp(34px, 6vw, 52px); font-weight: 700; margin: 6px 0 10px; }
+.lede { color: var(--muted); max-width: 640px; margin: 0; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.fact { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; font-size: 14px; }
+.fact b { display: block; font-size: 12px; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: .05em; }
+
+nav.toc { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+nav.toc .wrap { display: flex; gap: 4px; overflow-x: auto; padding-top: 8px; padding-bottom: 8px; }
+nav.toc a { color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+nav.toc a:hover { background: var(--accent-soft); color: var(--accent); }
+
+section { padding: 40px 0 8px; }
+section > h2 { font-size: 30px; margin-bottom: 6px; }
+section > .sub { color: var(--muted); margin: 0 0 22px; }
+
+.callout { border-left: 4px solid var(--gold); background: var(--gold-soft); padding: 14px 16px; border-radius: 0 10px 10px 0; margin: 0 0 18px; }
+.callout.red { border-color: var(--accent); background: var(--accent-soft); }
+.callout.green { border-color: var(--green); background: var(--green-soft); }
+.callout p { margin: 0; }
+.callout p + p { margin-top: 6px; }
+
+/* Day cards */
+.day { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin-bottom: 18px; }
+.day-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 12px; }
+.day-head h3 { font-size: 22px; }
+.who { font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--green-soft); color: var(--green); }
+.who.you { background: var(--accent-soft); color: var(--accent); }
+.day ul.tasks { list-style: none; padding: 0; margin: 0; }
+.tasks li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding: 9px 0; border-top: 1px dashed var(--line); }
+.tasks li:first-child { border-top: 0; }
+.tasks .dish { font-weight: 600; }
+.tasks .note { color: var(--muted); font-size: 14px; }
+
+/* Thursday timeline */
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; }
+.controls label { font-weight: 600; }
+select { font: inherit; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+ol.timeline { list-style: none; padding: 0; margin: 0; }
+.timeline li { display: grid; grid-template-columns: 22px 84px 1fr; gap: 10px; padding: 10px 0; border-top: 1px dashed var(--line); align-items: start; }
+.timeline li:first-child { border-top: 0; }
+.timeline time { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--accent); }
+.timeline li.key time { color: var(--ink); }
+.timeline li.key .what { font-weight: 600; }
+.oven { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: var(--gold-soft); color: var(--gold); margin-left: 4px; white-space: nowrap; }
+
+/* Checkboxes */
+input[type=checkbox] { appearance: none; -webkit-appearance: none; width: 18px; height: 18px; margin: 3px 0 0; border: 2px solid var(--muted); border-radius: 5px; cursor: pointer; display: grid; place-content: center; background: var(--surface); }
+input[type=checkbox]::after { content: ""; width: 9px; height: 5px; border: solid #fff; border-width: 0 0 2.5px 2.5px; transform: rotate(-45deg) translate(1px,-1px); opacity: 0; }
+input[type=checkbox]:checked { background: var(--check); border-color: var(--check); }
+input[type=checkbox]:checked::after { opacity: 1; }
+li:has(input:checked) .dish, li:has(input:checked) .what, li:has(input:checked) .item { text-decoration: line-through; color: var(--muted); }
+
+/* Shopping */
+.shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.shop { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; break-inside: avoid; }
+.shop h3 { font-size: 18px; margin-bottom: 6px; }
+.shop ul { list-style: none; padding: 0; margin: 0; }
+.shop li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding: 7px 0; border-top: 1px dashed var(--line); }
+.shop li:first-child { border-top: 0; }
+.item { font-weight: 500; }
+.qty { color: var(--accent); font-weight: 600; }
+.for { display: block; color: var(--muted); font-size: 13px; }
+.shop-actions { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+button { font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+button:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Recipes */
+.recipes { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.recipe { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; break-inside: avoid; }
+.recipe h3 { font-size: 19px; }
+.rlink { color: var(--ink); text-decoration: none; }
+.rlink:hover { color: var(--accent); text-decoration: underline; }
+.rlink span { font-size: 14px; color: var(--accent); }
+.recipe .by { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+.scale { display: inline-block; font-size: 12px; font-weight: 600; background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 999px; margin-bottom: 8px; }
+.recipe ul { margin: 0 0 10px; padding-left: 18px; font-size: 14.5px; }
+.recipe li { margin: 2px 0; }
+.recipe p { font-size: 14px; color: var(--muted); margin: 0; }
+.recipe p b { color: var(--ink); }
+
+.equip { columns: 2 260px; column-gap: 28px; padding-left: 18px; }
+.equip li { margin: 4px 0; break-inside: avoid; }
+
+footer { color: var(--muted); font-size: 13px; padding: 40px 0 60px; border-top: 1px solid var(--line); margin-top: 40px; }
+
+@media (max-width: 520px) {
+  .timeline li { grid-template-columns: 22px 70px 1fr; }
+  .day { padding: 16px; }
+}
+
+/* Recipe unlock dialog */
+dialog#unlock { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--surface); color: var(--ink); width: min(360px, calc(100vw - 32px)); }
+dialog#unlock::backdrop { background: rgb(0 0 0 / .45); }
+dialog#unlock h3 { font-size: 20px; margin-bottom: 4px; }
+dialog#unlock p { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
+dialog#unlock label { display: block; font-size: 13px; font-weight: 600; margin: 10px 0 4px; }
+dialog#unlock input { width: 100%; font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); }
+dialog#unlock .err { color: var(--accent); font-size: 14px; min-height: 20px; margin-top: 8px; }
+dialog#unlock .row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 6px; }
+dialog#unlock button[type=submit] { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+@media print {
+  :root { --bg: #fff; --surface: #fff; }
+  @page { margin: 0.5in; }
+  html { zoom: 0.8; }
+  body { font-size: 9.5pt; line-height: 1.4; }
+  header.hero { padding-bottom: 12px; }
+  h1 { font-size: 30pt; }
+  section > h2 { font-size: 18pt; }
+  section > .sub { margin-bottom: 10px; }
+  .callout { padding: 8px 12px; margin-bottom: 8px; }
+  .day { padding: 10px 14px; margin-bottom: 10px; }
+  .tasks li, .timeline li { padding: 5px 0; }
+  .shop-grid { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .shop { padding: 10px 12px; }
+  .shop li { padding: 3px 0; }
+  .recipes { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .recipe { padding: 10px 12px; }
+  .recipe ul { font-size: 9pt; }
+  .recipe p { font-size: 8.5pt; }
+  footer { padding: 12px 0; margin-top: 12px; }
+  nav.toc, .controls, .shop-actions, .no-print { display: none !important; }
+  header.hero { padding-top: 0; }
+  section { padding-top: 18px; }
+  section.page { break-before: page; }
+  .day, .shop, .recipe { break-inside: avoid; }
+  input[type=checkbox] { border-color: #555; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Thursday, November 26, 2026 · Dinner for 12</div>
+    <h1>Thanksgiving Plan</h1>
+    <p class="lede">Eight recipes, one oven, and a schedule that pushes almost everything into Tuesday and Wednesday so Thursday is mostly reheating, carving, and eating.</p>
+    <div class="facts">
+      <div class="fact"><b>Turkey</b>14–16 lb, dry-brined</div>
+      <div class="fact"><b>Monday</b>Optional: salt the turkey</div>
+      <div class="fact"><b>Tuesday night</b>~1½ hrs</div>
+      <div class="fact"><b>Wednesday</b>~3–4 hrs</div>
+      <div class="fact"><b>Thursday</b>Turkey + reheat</div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#before">Before</a>
+    <a href="#schedule">Mon–Wed</a>
+    <a href="#thursday">Thursday</a>
+    <a href="#shopping">Shopping list</a>
+    <a href="#recipes">Scaled recipes</a>
+    <a href="#equipment">Equipment</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="before">
+  <h2>Before the week starts</h2>
+  <p class="sub">Two decisions that drive the rest of the schedule.</p>
+
+  <div class="callout red">
+    <p><b>Frozen turkey? Move it to the fridge by Friday, Nov 20.</b> A 15 lb bird needs about 3–4 days to thaw in the fridge, and it has to be fully thawed before it's salted on Monday or Tuesday. A fresh turkey skips this step; order one for pickup on Monday or Tuesday.</p>
+  </div>
+  <div class="callout">
+    <p><b>Why 14–16 lb instead of the recipe's 10–12:</b> the usual rule is about 1¼ lb per person, which also leaves leftovers. A bigger bird needs longer in the oven: plan on 30 min at 450°F, then about 2–2½ hrs at 350°F. Go by the thermometer (165°F in the thickest part of the thigh), not the clock.</p>
+  </div>
+  <div class="callout green">
+    <p><b>Should someone start Monday?</b> It's nice to have but not required. The turkey needs <b>at least 1 day</b> in the salt (up to 3), then 4–12 hours uncovered in the fridge. If someone salts it Monday night, it gets 2 days, which is better. If not, salting it first thing Tuesday night still works: 24 hours in the bag, then uncovered overnight Wednesday.</p>
+  </div>
+</section>
+
+<section id="schedule">
+  <h2>Monday – Wednesday</h2>
+  <p class="sub">Checkboxes save in this browser, so you can tick things off as you go.</p>
+
+  <div class="day">
+    <div class="day-head"><h3>Monday, Nov 23</h3><span class="who">Optional</span></div>
+    <ul class="tasks">
+      <li><input type="checkbox" data-k="mon-shop"><div><span class="dish">Do the big shop</span><div class="note">Everything on the list. Buy the bread now so it can go stale by Wednesday.</div></div></li>
+      <li><input type="checkbox" data-k="mon-turkey"><div><span class="dish">Dry-brine the turkey</span><div class="note">Take out the giblets and neck. Pat everything dry. Rub all over (neck too) with 7½ tsp kosher salt (½ tsp per lb), 1 Tbsp pepper, and the zest of 1 lemon. Put it in a 2-gallon bag with the thyme, sage, and 6 smashed garlic cloves. Set it on a rimmed sheet pan in the fridge. <b>Flip it once a day.</b></div></div></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-head"><h3>Tuesday, Nov 24 · evening</h3><span class="who">~1½ hrs</span></div>
+    <ul class="tasks">
+      <li><input type="checkbox" data-k="tue-turkey"><div><span class="dish">Turkey: salt it, or flip it</span><div class="note">If nobody did it Monday, dry-brine it first thing (see Monday). If you salt it tonight, flip it before bed or first thing Wednesday morning.</div></div></li>
+      <li><input type="checkbox" data-k="tue-gravy"><div><span class="dish">Make the gravy (1½×)</span><div class="note">20 min. Cook the onion in butter, brown the flour, then whisk in the stock. Cool it, cover, and refrigerate. It keeps up to 5 days.</div></div></li>
+      <li><input type="checkbox" data-k="tue-relish"><div><span class="dish">Make the cranberry-orange relish (2×)</span><div class="note">5 min. Pulse it in the food processor <b>in two batches</b>. The recipe says it tastes better after a day or two in the fridge.</div></div></li>
+      <li><input type="checkbox" data-k="tue-bread"><div><span class="dish">Tear the bread for the stuffing</span><div class="note">Tear both loaves into chunks and spread them on sheet pans, uncovered, so they're stale by tomorrow.</div></div></li>
+      <li><input type="checkbox" data-k="tue-fridge"><div><span class="dish">Clear fridge space</span><div class="note">By Wednesday night the fridge has to hold the turkey on a sheet pan plus six make-ahead dishes. A cooler with ice can take the drinks.</div></div></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-head"><h3>Wednesday, Nov 25</h3><span class="who">Main prep day · ~3–4 hrs</span></div>
+    <ul class="tasks">
+      <li><input type="checkbox" data-k="wed-potatoes"><div><span class="dish">Mashed potatoes (3×)</span><div class="note">Make them all the way through (Step 8), then refrigerate them covered in a baking dish. They keep up to 5 days. Do not freeze.</div></div></li>
+      <li><input type="checkbox" data-k="wed-veg"><div><span class="dish">Roast the carrots and brussels sprouts together · 375–400°F</span><div class="note"><b>Carrots (1.5×):</b> roast until tender, add the parsley, cool, and refrigerate (keeps 4–5 days). <b>Sprouts (2×):</b> roast on two sheet pans and stir in the maple syrup at 30 min (Steps 1–4). Pull them out a little underdone, cool, and refrigerate. They finish on Thursday.</div></div></li>
+      <li><input type="checkbox" data-k="wed-nuts"><div><span class="dish">Toast and chop the hazelnuts</span><div class="note">Do this while the oven is hot. 8–10 min, then rub off the skins in a towel. Store airtight at room temperature.</div></div></li>
+      <li><input type="checkbox" data-k="wed-stuffing"><div><span class="dish">Stuffing (2×), cooked and baked</span><div class="note">Pulse the stale bread into very coarse crumbs and cook them with the butter, onion, nuts, sage, scallions, and parsley. Bake in two 9×13 dishes for about 45 min at 375°F. Cool and refrigerate; it reheats Thursday. The recipe allows cooking it up to 3 days ahead.</div></div></li>
+      <li><input type="checkbox" data-k="wed-beans"><div><span class="dish">Blanch the green beans (2×)</span><div class="note">Boil 3–5 min, then rinse under cold water. Dry them well and refrigerate in a bag lined with paper towels. Chop the shallots and refrigerate them too.</div></div></li>
+      <li><input type="checkbox" data-k="wed-pies"><div><span class="dish">Pick up the pies and dinner rolls</span><div class="note">Pies can sit at room temperature overnight (refrigerate any pumpkin or cream pies). Keep the rolls in their bag.</div></div></li>
+      <li><input type="checkbox" data-k="wed-turkey"><div><span class="dish">Unwrap the turkey to dry the skin · around <time data-offset="-1020">9:00 PM</time></span><div class="note">Take it out of the bag (throw out the herbs), pat it dry, and put it back on the sheet pan <b>uncovered</b> in the fridge. It needs 4–12 hours this way; the time shown is 12 hours before it comes out of the fridge on Thursday.</div></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="thursday" class="page">
+  <h2>Thursday, Nov 26</h2>
+  <p class="sub">There's one oven, so the plan is: turkey in the oven, turkey out to rest, then everything else reheats at 400°F while it rests.</p>
+
+  <div class="controls">
+    <label for="dinner">Dinner at</label>
+    <select id="dinner">
+      <option value="780">1:00 PM</option>
+      <option value="840" selected>2:00 PM</option>
+      <option value="900">3:00 PM</option>
+      <option value="960">4:00 PM</option>
+      <option value="1020">5:00 PM</option>
+      <option value="1080">6:00 PM</option>
+      <option value="1140">7:00 PM</option>
+    </select>
+    <span class="note" style="color:var(--muted);font-size:14px">All times below shift to match.</span>
+  </div>
+
+  <div class="day">
+    <ol class="timeline">
+      <li><input type="checkbox" data-k="thu-1"><time data-offset="-300"></time><div class="what">Take the turkey out of the fridge and let it sit at room temperature for 1 hour.</div></li>
+      <li><input type="checkbox" data-k="thu-2"><time data-offset="-255"></time><div class="what">Preheat the oven to 450°F <span class="oven">450°</span><div class="note" style="color:var(--muted);font-size:14px">Roasting pan: pour in the cider plus enough white wine to reach ¼ inch, then add 1 quartered onion, 6 garlic cloves, and the bay leaves. Stuff the other onion and the lemon quarters into the bird. Brush the skin well with melted butter or oil, then set the turkey breast-up on the rack.</div></div></li>
+      <li class="key"><input type="checkbox" data-k="thu-3"><time data-offset="-240"></time><div class="what">Turkey goes in <span class="oven">450° · 30 min</span></div></li>
+      <li class="key"><input type="checkbox" data-k="thu-4"><time data-offset="-210"></time><div class="what">Cover the breast with foil and turn the oven down to 350°F <span class="oven">350°</span></div></li>
+      <li><input type="checkbox" data-k="thu-5"><time data-offset="-150"></time><div class="what">Take the stuffing, sprouts, carrots, and potatoes out of the fridge to lose their chill. Set the table.</div></li>
+      <li><input type="checkbox" data-k="thu-6"><time data-offset="-120"></time><div class="what">Start checking the thigh temperature. You're aiming for <b>165°F</b>. A 14–16 lb bird usually needs 2–2½ hrs at 350°F.</div></li>
+      <li class="key"><input type="checkbox" data-k="thu-7"><time data-offset="-90"></time><div class="what">Turkey out to rest, loosely tented with foil. Turn the oven up to 400°F <span class="oven">400°</span><div class="note" style="color:var(--muted);font-size:14px">The rest can run 30–60 min, which is your buffer if the bird runs long. Save the pan drippings for the gravy.</div></div></li>
+      <li><input type="checkbox" data-k="thu-8"><time data-offset="-75"></time><div class="what">Stuffing goes in, covered with foil, about 30 min. Uncover it for the last 10 min to crisp the top.</div></li>
+      <li><input type="checkbox" data-k="thu-9"><time data-offset="-45"></time><div class="what">Sprouts and carrots go in, about 15 min <span class="oven">400°</span><div class="note" style="color:var(--muted);font-size:14px">The carrots are also fine served at room temperature if the oven is full. Start reheating the potatoes in a pot over medium with a splash of cream, stirring now and then.</div></div></li>
+      <li class="key"><input type="checkbox" data-k="thu-10"><time data-offset="-30"></time><div class="what">Carve the turkey. Reheat the gravy over low heat and whisk in the skimmed pan drippings.</div></li>
+      <li><input type="checkbox" data-k="thu-rolls"><time data-offset="-20"></time><div class="what">Warm the dinner rolls, wrapped in foil, for 8–10 min <span class="oven">400°</span></div></li>
+      <li><input type="checkbox" data-k="thu-11"><time data-offset="-12"></time><div class="what">Green beans: cook the shallots in butter for about 1 min, add the beans, salt, and pepper, toss until hot, then add the lemon juice. Toss the sprouts with the hazelnuts. Set out the relish.</div></li>
+      <li class="key"><input type="checkbox" data-k="thu-12"><time data-offset="0"></time><div class="what">Dinner 🦃</div></li>
+      <li><input type="checkbox" data-k="thu-dessert"><time data-offset="90"></time><div class="what">Dessert: whip the cream (or shake the cans) and slice the pies</div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="shopping" class="page">
+  <h2>Shopping list</h2>
+  <p class="sub">Already scaled for 12 people, with every recipe combined. The small print says which dish each item is for.</p>
+  <div class="shop-actions"><button type="button" id="clear-shop">Uncheck all</button></div>
+
+  <div class="shop-grid">
+    <div class="shop">
+      <h3>Bread, dessert &amp; wine</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-rolls"><div><span class="item">Dinner rolls</span> · <span class="qty">2 dozen</span><span class="for">Pick them up Wednesday and warm them Thursday</span></div></li>
+        <li><input type="checkbox" data-k="s-pies"><div><span class="item">Pies</span> · <span class="qty">3</span><span class="for">About 24 slices. For example, pumpkin, apple, and pecan.</span></div></li>
+        <li><input type="checkbox" data-k="s-whip"><div><span class="item">Whipped cream</span> · <span class="qty">1 pint heavy cream + 2 Tbsp sugar</span><span class="for">Whip it right before dessert. Two cans of whipped cream work too.</span></div></li>
+        <li><input type="checkbox" data-k="s-goodwine"><div><span class="item">Really expensive wine</span> · <span class="qty">Jeff &amp; Lori</span><span class="for">Their job. Nobody else needs to buy this.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Meat &amp; stock</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-turkey"><div><span class="item">Turkey</span> · <span class="qty">14–16 lb</span><span class="for">Fresh if you can get one. Frozen means thawing by Fri 11/20.</span></div></li>
+        <li><input type="checkbox" data-k="s-stock"><div><span class="item">Turkey or chicken stock, low-sodium</span> · <span class="qty">3 quarts</span><span class="for">Gravy (about 7 cups), plus extra to thin it</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Produce</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-potato"><div><span class="item">Russet potatoes</span> · <span class="qty">6 lb</span><span class="for">Mashed potatoes</span></div></li>
+        <li><input type="checkbox" data-k="s-sprouts"><div><span class="item">Brussels sprouts</span> · <span class="qty">3 lb</span><span class="for">Sprouts</span></div></li>
+        <li><input type="checkbox" data-k="s-carrot"><div><span class="item">Carrots</span> · <span class="qty">3 lb</span><span class="for">Roasted carrots</span></div></li>
+        <li><input type="checkbox" data-k="s-beans"><div><span class="item">Thin green beans (haricots verts)</span> · <span class="qty">2 lb</span><span class="for">Green beans</span></div></li>
+        <li><input type="checkbox" data-k="s-cran"><div><span class="item">Fresh cranberries</span> · <span class="qty">2 bags (12 oz)</span><span class="for">Relish</span></div></li>
+        <li><input type="checkbox" data-k="s-orange"><div><span class="item">Navel oranges</span> · <span class="qty">2</span><span class="for">Relish</span></div></li>
+        <li><input type="checkbox" data-k="s-lemon"><div><span class="item">Lemons</span> · <span class="qty">2</span><span class="for">Turkey (zest and cavity), green beans (juice)</span></div></li>
+        <li><input type="checkbox" data-k="s-onion"><div><span class="item">Yellow onions</span> · <span class="qty">6</span><span class="for">Turkey (2), stuffing (2 cups chopped), gravy (¾ cup)</span></div></li>
+        <li><input type="checkbox" data-k="s-shallot"><div><span class="item">Shallots</span> · <span class="qty">3 large</span><span class="for">Green beans (6 Tbsp chopped)</span></div></li>
+        <li><input type="checkbox" data-k="s-garlic"><div><span class="item">Garlic</span> · <span class="qty">2 heads</span><span class="for">Turkey (12 cloves)</span></div></li>
+        <li><input type="checkbox" data-k="s-scallion"><div><span class="item">Scallions</span> · <span class="qty">1 large bunch</span><span class="for">Stuffing (1 cup chopped)</span></div></li>
+        <li><input type="checkbox" data-k="s-parsley"><div><span class="item">Flat-leaf parsley</span> · <span class="qty">2 bunches</span><span class="for">Stuffing (1 cup), carrots (⅓ cup)</span></div></li>
+        <li><input type="checkbox" data-k="s-sage"><div><span class="item">Fresh sage</span> · <span class="qty">2 bunches</span><span class="for">Turkey (1 bunch), stuffing (2 Tbsp minced)</span></div></li>
+        <li><input type="checkbox" data-k="s-thyme"><div><span class="item">Fresh thyme</span> · <span class="qty">2 bunches</span><span class="for">Turkey (1 bunch), carrots (1½ tsp leaves)</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Dairy</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-butter"><div><span class="item">Unsalted butter</span> · <span class="qty">3 lb (12 sticks)</span><span class="for">Stuffing 4 sticks · potatoes ~2 · gravy 1½ · green beans ¾ · turkey skin. Leaves a little extra.</span></div></li>
+        <li><input type="checkbox" data-k="s-cream"><div><span class="item">Heavy cream</span> · <span class="qty">1 pint</span><span class="for">Mashed potatoes, plus a splash when reheating</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Bakery &amp; nuts</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-bread"><div><span class="item">Good crusty bread</span> · <span class="qty">2 large loaves (~3 lb)</span><span class="for">Stuffing (12–16 cups coarse crumbs). Buy it early so it can go stale.</span></div></li>
+        <li><input type="checkbox" data-k="s-pine"><div><span class="item">Pine nuts or walnuts</span> · <span class="qty">1 cup</span><span class="for">Stuffing</span></div></li>
+        <li><input type="checkbox" data-k="s-pecan"><div><span class="item">Pecans</span> · <span class="qty">1 cup</span><span class="for">Relish</span></div></li>
+        <li><input type="checkbox" data-k="s-hazel"><div><span class="item">Hazelnuts, skinned if possible</span> · <span class="qty">1 cup</span><span class="for">Sprouts</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Pantry</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-salt"><div><span class="item">Coarse kosher salt</span> · <span class="qty">1 box</span><span class="for">Turkey (~2½ Tbsp), potato water, everything else</span></div></li>
+        <li><input type="checkbox" data-k="s-seasalt"><div><span class="item">Sea salt</span> · <span class="qty">small</span><span class="for">Sprouts (1½ tsp)</span></div></li>
+        <li><input type="checkbox" data-k="s-pepper"><div><span class="item">Whole black peppercorns</span> · <span class="qty">1 jar</span><span class="for">Turkey (1 Tbsp) and most of the other dishes</span></div></li>
+        <li><input type="checkbox" data-k="s-oil"><div><span class="item">Extra-virgin olive oil</span> · <span class="qty">~1 cup</span><span class="for">Sprouts (½ cup), carrots (4½ Tbsp)</span></div></li>
+        <li><input type="checkbox" data-k="s-flour"><div><span class="item">All-purpose flour</span> · <span class="qty">¾ cup</span><span class="for">Gravy</span></div></li>
+        <li><input type="checkbox" data-k="s-honey"><div><span class="item">Mild honey (clover)</span> · <span class="qty">⅔ cup</span><span class="for">Relish</span></div></li>
+        <li><input type="checkbox" data-k="s-maple"><div><span class="item">Pure maple syrup</span> · <span class="qty">¼ cup</span><span class="for">Sprouts</span></div></li>
+        <li><input type="checkbox" data-k="s-bay"><div><span class="item">Bay leaves</span> · <span class="qty">3</span><span class="for">Turkey</span></div></li>
+        <li><input type="checkbox" data-k="s-oregano"><div><span class="item">Dried oregano</span> · <span class="qty">¾ tsp</span><span class="for">Carrots</span></div></li>
+        <li><input type="checkbox" data-k="s-nutmeg"><div><span class="item">Whole nutmeg</span> · <span class="qty">optional</span><span class="for">Mashed potatoes</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>For the roasting pan</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-cider"><div><span class="item">Hard apple cider</span> · <span class="qty">one 12-oz bottle</span><span class="for">Turkey pan</span></div></li>
+        <li><input type="checkbox" data-k="s-wine"><div><span class="item">Dry white wine</span> · <span class="qty">1 bottle</span><span class="for">Turkey pan (1–2 cups); drink the rest</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Supplies</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-bag"><div><span class="item">2-gallon zip bag or brining bag</span> · <span class="qty">1–2</span><span class="for">Turkey dry brine</span></div></li>
+        <li><input type="checkbox" data-k="s-foil"><div><span class="item">Heavy-duty foil</span> · <span class="qty">1 roll</span><span class="for">Turkey breast, reheating, lining the sprout pans</span></div></li>
+        <li><input type="checkbox" data-k="s-towels"><div><span class="item">Paper towels</span> · <span class="qty">plenty</span><span class="for">Patting the turkey dry, storing the beans</span></div></li>
+        <li><input type="checkbox" data-k="s-therm"><div><span class="item">Instant-read thermometer</span> · <span class="qty">if you don't have one</span><span class="for">Turkey. You need one.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="recipes" class="page">
+  <h2>Scaled recipes</h2>
+  <p class="sub">Ingredient amounts for 12, so nobody has to do the math at the stove. Click a recipe name to open the original PDF with the full method (password required).</p>
+  <div class="recipes">
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/turkey.pdf" target="_blank" rel="noopener">Simple Roast Turkey <span aria-hidden="true">↗</span></a></h3><div class="by">Melissa Clark</div>
+      <span class="scale">14–16 lb bird</span>
+      <ul>
+        <li>1 turkey, 14–16 lb</li>
+        <li>~7½ tsp kosher salt (½ tsp per lb)</li>
+        <li>1 Tbsp black pepper</li>
+        <li>1 lemon, zested and quartered</li>
+        <li>1 bunch thyme, 1 bunch sage</li>
+        <li>12 garlic cloves, smashed</li>
+        <li>12 oz hard cider + white wine to ¼ inch</li>
+        <li>2 onions, quartered · 3 bay leaves</li>
+        <li>Melted butter or olive oil for brushing</li>
+      </ul>
+      <p><b>Time:</b> 30 min at 450°F, then ~2–2½ hrs at 350°F until the thigh reads 165°F. Rest 30+ min.</p>
+    </div>
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/gravy.pdf" target="_blank" rel="noopener">Make-Ahead Gravy <span aria-hidden="true">↗</span></a></h3><div class="by">Mark Bittman</div>
+      <span class="scale">1½× · ~8 cups</span>
+      <ul>
+        <li>12 Tbsp (1½ sticks) butter</li>
+        <li>¾ cup chopped onion</li>
+        <li>¾ cup flour</li>
+        <li>6–7½ cups rich stock, warmed</li>
+        <li>Salt, pepper, turkey drippings</li>
+      </ul>
+      <p><b>When:</b> Tuesday night. Reheat over low heat Thursday and whisk in the drippings.</p>
+    </div>
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/stuffing.pdf" target="_blank" rel="noopener">Bread Stuffing <span aria-hidden="true">↗</span></a></h3><div class="by">Mark Bittman</div>
+      <span class="scale">2× · two 9×13 dishes</span>
+      <ul>
+        <li>1 lb (4 sticks) butter</li>
+        <li>2 cups chopped onion</li>
+        <li>1 cup pine nuts or chopped walnuts</li>
+        <li>12–16 cups coarse fresh bread crumbs</li>
+        <li>2 Tbsp minced fresh sage</li>
+        <li>1 cup chopped scallions</li>
+        <li>1 cup chopped parsley · salt, pepper</li>
+      </ul>
+      <p><b>When:</b> Wednesday, cooked and baked (~45 min at 375°F). Reheat Thursday at 400°F, covered.</p>
+    </div>
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/mashed-potatoes.pdf" target="_blank" rel="noopener">Mashed Potatoes <span aria-hidden="true">↗</span></a></h3><div class="by">Melissa Clark</div>
+      <span class="scale">3× · ~12–15 servings</span>
+      <ul>
+        <li>6 lb russet potatoes, peeled</li>
+        <li>9–18 Tbsp butter (about 1½–2 sticks)</li>
+        <li>1½ cups heavy cream, plus more</li>
+        <li>Salt, pepper, nutmeg</li>
+      </ul>
+      <p><b>When:</b> Wednesday. Use your biggest pot, or split it between two. A ricer gives the fluffiest result.</p>
+    </div>
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/cranberry-relish.pdf" target="_blank" rel="noopener">Cranberry-Orange Relish <span aria-hidden="true">↗</span></a></h3><div class="by">Martha Rose Shulman</div>
+      <span class="scale">2× · 16 servings</span>
+      <ul>
+        <li>2 bags fresh cranberries</li>
+        <li>2 navel oranges, skin on, in chunks</li>
+        <li>1 cup pecans</li>
+        <li>⅔ cup mild honey</li>
+      </ul>
+      <p><b>When:</b> Tuesday night. Process in two batches; it must be a food processor, not a blender.</p>
+    </div>
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/brussels-sprouts.pdf" target="_blank" rel="noopener">Maple-Roasted Brussels Sprouts <span aria-hidden="true">↗</span></a></h3><div class="by">Tara Parker-Pope</div>
+      <span class="scale">2× · 12 servings</span>
+      <ul>
+        <li>3 lb brussels sprouts, halved</li>
+        <li>½ cup olive oil</li>
+        <li>1½ tsp sea salt · ½ tsp pepper</li>
+        <li>¼ cup maple syrup</li>
+        <li>1 cup toasted hazelnuts, chopped</li>
+      </ul>
+      <p><b>When:</b> Wednesday, Steps 1–4 on two foil-lined pans. Thursday, roast about 15 min more and toss with the nuts.</p>
+    </div>
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/carrots.pdf" target="_blank" rel="noopener">Roasted Carrots <span aria-hidden="true">↗</span></a></h3><div class="by">Martha Rose Shulman</div>
+      <span class="scale">1½× · 9 servings</span>
+      <ul>
+        <li>3 lb carrots</li>
+        <li>1½ tsp fresh thyme leaves</li>
+        <li>4½ Tbsp olive oil</li>
+        <li>¾ tsp dried oregano · salt, pepper</li>
+        <li>⅓ cup chopped parsley</li>
+      </ul>
+      <p><b>When:</b> Wednesday. Serve warm or at room temperature.</p>
+    </div>
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/green-beans.pdf" target="_blank" rel="noopener">French Green Beans &amp; Shallots <span aria-hidden="true">↗</span></a></h3><div class="by">Jacques Pépin</div>
+      <span class="scale">2× · 8 servings</span>
+      <ul>
+        <li>2 lb thin green beans</li>
+        <li>6 Tbsp butter</li>
+        <li>6 Tbsp chopped shallots</li>
+        <li>½ tsp salt · ½ tsp pepper</li>
+        <li>2 tsp lemon juice</li>
+      </ul>
+      <p><b>When:</b> Blanch Wednesday. Sauté Thursday right before serving, in your widest pan (or in two batches).</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:18px">
+    <p><b>About the portions:</b> there are three vegetable sides plus potatoes and stuffing, so each side doesn't need to feed all 12 on its own. The potatoes, stuffing, and relish are scaled up the most because those are what people take seconds of and want as leftovers.</p>
+  </div>
+</section>
+
+<section id="equipment">
+  <h2>Equipment check</h2>
+  <p class="sub">Find these before Tuesday.</p>
+  <ul class="equip">
+    <li>Large roasting pan with a rack</li>
+    <li>Rimmed sheet pan that fits in the fridge (for the turkey)</li>
+    <li>2–3 more sheet pans (sprouts, carrots)</li>
+    <li>Two 9×13 baking dishes (stuffing)</li>
+    <li>A baking dish or pot for the potatoes</li>
+    <li>Large stockpot, 8 qt or bigger</li>
+    <li>Medium saucepan (gravy)</li>
+    <li>Large deep skillet or Dutch oven (stuffing, beans)</li>
+    <li>Food processor (relish, bread crumbs)</li>
+    <li>Potato ricer or masher</li>
+    <li>Colander, whisk, big mixing bowls</li>
+    <li>Instant-read thermometer</li>
+    <li>Carving board and knife</li>
+    <li>Serving dishes and spoons for 8 dishes, plus a gravy boat</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Recipes from NYT Cooking: Melissa Clark, Mark Bittman, Martha Rose Shulman, Jacques Pépin, Tara Parker-Pope. This page is a planning companion; the original recipes have the full methods.</div>
+</footer>
+
+<dialog id="unlock">
+  <form id="unlock-form">
+    <h3>Recipe PDFs</h3>
+    <p>The original recipes are password-protected.</p>
+    <label for="u-user">Username</label>
+    <input id="u-user" name="user" autocomplete="username" autocapitalize="off" required>
+    <label for="u-pass">Password</label>
+    <input id="u-pass" name="pass" type="password" autocomplete="current-password" required>
+    <div class="err" id="u-err" role="alert"></div>
+    <div class="row"><button type="button" id="u-cancel">Cancel</button><button type="submit">Open recipe</button></div>
+  </form>
+</dialog>
+
+<script>
+(function () {
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
+  };
+  var PREFIX = 'tg26:';
+
+  // Checkboxes
+  var boxes = document.querySelectorAll('input[type=checkbox][data-k]');
+  boxes.forEach(function (b) {
+    if (store.get(PREFIX + b.dataset.k) === '1') b.checked = true;
+    b.addEventListener('change', function () {
+      if (b.checked) store.set(PREFIX + b.dataset.k, '1'); else store.del(PREFIX + b.dataset.k);
+    });
+  });
+  document.getElementById('clear-shop').addEventListener('click', function () {
+    document.querySelectorAll('#shopping input[type=checkbox]').forEach(function (b) {
+      b.checked = false; store.del(PREFIX + b.dataset.k);
+    });
+  });
+
+  // Dinner-time-relative timeline
+  var sel = document.getElementById('dinner');
+  var saved = store.get(PREFIX + 'dinner');
+  if (saved && sel.querySelector('option[value="' + saved + '"]')) sel.value = saved;
+
+  function fmt(mins) {
+    mins = ((mins % 1440) + 1440) % 1440;
+    var h = Math.floor(mins / 60), m = mins % 60;
+    var ap = h >= 12 ? 'PM' : 'AM';
+    var h12 = h % 12 === 0 ? 12 : h % 12;
+    return h12 + ':' + (m < 10 ? '0' : '') + m + ' ' + ap;
+  }
+  function render() {
+    var dinner = parseInt(sel.value, 10);
+    document.querySelectorAll('time[data-offset]').forEach(function (t) {
+      t.textContent = fmt(dinner + parseInt(t.dataset.offset, 10));
+    });
+  }
+  sel.addEventListener('change', function () { store.set(PREFIX + 'dinner', sel.value); render(); });
+  render();
+  // Encrypted recipe PDFs: recipes/<name>.pdf.enc = salt16 | iv12 | AES-256-GCM(ciphertext+tag),
+  // key = PBKDF2-SHA256("user:pass", salt, 150000).
+  var CRED = PREFIX + 'cred';
+  function sget(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
+  function sset(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
+  function sdel(k) { try { sessionStorage.removeItem(k); } catch (e) {} }
+
+  async function decryptPdf(href, cred) {
+    var res = await fetch(href + '.enc');
+    if (!res.ok) throw new Error('fetch');
+    var buf = new Uint8Array(await res.arrayBuffer());
+    var subtle = crypto.subtle;
+    var base = await subtle.importKey('raw', new TextEncoder().encode(cred), 'PBKDF2', false, ['deriveKey']);
+    var key = await subtle.deriveKey({ name: 'PBKDF2', salt: buf.slice(0, 16), iterations: 150000, hash: 'SHA-256' },
+      base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    var plain = await subtle.decrypt({ name: 'AES-GCM', iv: buf.slice(16, 28) }, key, buf.slice(28));
+    return URL.createObjectURL(new Blob([plain], { type: 'application/pdf' }));
+  }
+
+  // Open a window synchronously (inside the click) so popup blockers allow it, then point it at the PDF.
+  async function openWith(href, cred) {
+    var win = window.open('', '_blank');
+    if (win) { try { win.document.title = 'Opening recipe…'; win.document.body.textContent = 'Opening recipe…'; } catch (e) {} }
+    try {
+      var url = await decryptPdf(href, cred);
+      if (win) win.location.href = url; else location.href = url;
+      return true;
+    } catch (e) {
+      if (win) win.close();
+      return false;
+    }
+  }
+
+  var dlg = document.getElementById('unlock');
+  var form = document.getElementById('unlock-form');
+  var err = document.getElementById('u-err');
+  var pending = null;
+
+  function ask(href) {
+    pending = href; err.textContent = ''; form.reset();
+    dlg.showModal();
+    document.getElementById('u-user').focus();
+  }
+  document.getElementById('u-cancel').addEventListener('click', function () { dlg.close(); });
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var cred = form.user.value.trim() + ':' + form.pass.value;
+    err.textContent = 'Checking…';
+    if (await openWith(pending, cred)) { sset(CRED, cred); dlg.close(); }
+    else err.textContent = 'That username or password didn\u2019t work.';
+  });
+
+  document.querySelectorAll('a.rlink').forEach(function (a) {
+    a.addEventListener('click', async function (e) {
+      e.preventDefault();
+      var href = a.getAttribute('href');
+      var cred = sget(CRED);
+      if (cred) {
+        if (!(await openWith(href, cred))) { sdel(CRED); ask(href); }
+      } else ask(href);
+    });
+  });
+})();
+</script>
+</body>
+</html>
