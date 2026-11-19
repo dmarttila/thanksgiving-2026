@@ -131,6 +131,15 @@ button:hover { border-color: var(--accent); color: var(--accent); }
 
 footer { color: var(--muted); font-size: 13px; padding: 40px 0 60px; border-top: 1px solid var(--line); margin-top: 40px; }
 
+.btnlink { font-size: 14px; padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; }
+.btnlink:hover { border-color: var(--accent); color: var(--accent); }
+.plain { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; margin-top: 16px; }
+.plain-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 10px; }
+.plain-head h3 { font-size: 18px; margin-right: auto; }
+#copy-msg { color: var(--green); font-size: 14px; font-weight: 600; }
+#plain-list { margin: 0; font: 15px/1.6 Inter, system-ui, sans-serif; white-space: pre-wrap; user-select: all; -webkit-user-select: all; }
+@media print { .plain { display: none; } }
+
 @media (max-width: 520px) {
   .timeline li { grid-template-columns: 22px 70px 1fr; }
   .day { padding: 16px; }
@@ -260,7 +269,7 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
 <section id="shopping" class="page">
   <h2>Shopping list</h2>
   <p class="sub">All four recipes combined. The small print says which recipe each item is for.</p>
-  <div class="shop-actions"><button type="button" id="clear-shop">Uncheck all</button></div>
+  <div class="shop-actions"><button type="button" id="clear-shop">Uncheck all</button><a class="btnlink" href="#plain">Copyable list ↓</a></div>
 
   <div class="shop-grid">
     <div class="shop">
@@ -324,6 +333,11 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
       </ul>
     </div>
 
+  </div>
+
+  <div class="plain" id="plain">
+    <div class="plain-head"><h3>One list to copy</h3><button type="button" id="copy-shop">Copy list</button><span id="copy-msg" role="status"></span></div>
+    <pre id="plain-list"></pre>
   </div>
 </section>
 
@@ -453,6 +467,27 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
     document.querySelectorAll('#shopping input[type=checkbox]').forEach(function (b) {
       b.checked = false; store.del(PREFIX + b.dataset.k);
     });
+  });
+
+  // Plain-text grocery list, built from the shopping cards so the two always match
+  var lines = [];
+  document.querySelectorAll('#shopping .shop li').forEach(function (li) {
+    var item = li.querySelector('.item'), qty = li.querySelector('.qty');
+    if (item) lines.push(item.textContent.trim() + (qty ? ' — ' + qty.textContent.trim() : ''));
+  });
+  var listText = lines.join('\n');
+  var pre = document.getElementById('plain-list');
+  pre.textContent = listText;
+  var msg = document.getElementById('copy-msg');
+  document.getElementById('copy-shop').addEventListener('click', function () {
+    function selectIt() {
+      var r = document.createRange(); r.selectNodeContents(pre);
+      var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      msg.textContent = 'Selected. Press Copy (or \u2318C).';
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(listText).then(function () { msg.textContent = 'Copied!'; setTimeout(function () { msg.textContent = ''; }, 2500); }, selectIt);
+    } else selectIt();
   });
 
   // Encrypted recipe PDFs: recipes/<name>.pdf.enc = salt16 | iv12 | AES-256-GCM(ciphertext+tag),
