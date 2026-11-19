@@ -268,16 +268,16 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
 
 <section id="shopping" class="page">
   <h2>Shopping list</h2>
-  <p class="sub">All four recipes combined. The small print says which recipe each item is for.</p>
+  <p class="sub">All four recipes combined. Amounts are what the recipes use, not package sizes, so check the pantry first and only buy what's missing. The small print says which recipe each item is for.</p>
   <div class="shop-actions"><button type="button" id="clear-shop">Uncheck all</button><a class="btnlink" href="#plain">Copyable list ↓</a></div>
 
   <div class="shop-grid">
     <div class="shop">
       <h3>Dessert toppings</h3>
       <ul>
-        <li><input type="checkbox" data-k="s-icecream"><div><span class="item">Vanilla ice cream</span> · <span class="qty">2 quarts</span><span class="for">About ½ cup per person for 14, with a little extra</span></div></li>
-        <li><input type="checkbox" data-k="s-cream"><div><span class="item">Heavy cream</span> · <span class="qty">1 quart</span><span class="for">Whipped cream (2 cups), pumpkin pie (1½ cups), plus a splash to brush the apple pie</span></div></li>
-        <li><input type="checkbox" data-k="s-whipcan"><div><span class="item">Canned whipped cream</span> · <span class="qty">1 can</span><span class="for">Backup, and for the kids' table</span></div></li>
+        <li><input type="checkbox" data-k="s-icecream"><div><span class="item">Vanilla ice cream</span> · <span class="qty">about 7 cups</span><span class="for">About ½ cup per person for 14</span></div></li>
+        <li><input type="checkbox" data-k="s-cream"><div><span class="item">Heavy cream</span> · <span class="qty">3½ cups + a splash</span><span class="for">Whipped cream (2 cups), pumpkin pie (1½ cups), plus a splash to brush the apple pie</span></div></li>
+        <li><input type="checkbox" data-k="s-whipcan"><div><span class="item">Canned whipped cream</span> · <span class="qty">1 can</span><span class="for">Optional backup</span></div></li>
       </ul>
     </div>
 
@@ -285,37 +285,37 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
       <h3>Produce</h3>
       <ul>
         <li><input type="checkbox" data-k="s-apples"><div><span class="item">Firm, crisp apples</span> · <span class="qty">3½ lb (7–8 large)</span><span class="for">Apple pie. All one kind: Honeycrisp is sweetest, Granny Smith most tart, Golden Delicious in between.</span></div></li>
-        <li><input type="checkbox" data-k="s-cran"><div><span class="item">Fresh cranberries</span> · <span class="qty">2 bags (12 oz)</span><span class="for">Relish</span></div></li>
+        <li><input type="checkbox" data-k="s-cran"><div><span class="item">Fresh cranberries</span> · <span class="qty">24 oz (2 standard 12-oz bags)</span><span class="for">Relish</span></div></li>
         <li><input type="checkbox" data-k="s-orange"><div><span class="item">Navel oranges</span> · <span class="qty">2</span><span class="for">Relish</span></div></li>
         <li><input type="checkbox" data-k="s-lemon"><div><span class="item">Lemon</span> · <span class="qty">1</span><span class="for">Apple pie (1½ tsp juice, ½ tsp zest)</span></div></li>
-        <li><input type="checkbox" data-k="s-ginger"><div><span class="item">Fresh ginger</span> · <span class="qty">3-inch piece</span><span class="for">Pumpkin pie (2 Tbsp grated). Or use 1 tsp ground ginger instead.</span></div></li>
+        <li><input type="checkbox" data-k="s-ginger"><div><span class="item">Fresh ginger</span> · <span class="qty">2 Tbsp grated (~2-inch piece)</span><span class="for">Pumpkin pie. Or use 1 tsp ground ginger instead.</span></div></li>
       </ul>
     </div>
 
     <div class="shop">
       <h3>Dairy &amp; eggs</h3>
       <ul>
-        <li><input type="checkbox" data-k="s-eggs"><div><span class="item">Large eggs</span> · <span class="qty">1 dozen</span><span class="for">Pecan pie (3), pumpkin pie (3), apple pie glaze (1)</span></div></li>
-        <li><input type="checkbox" data-k="s-butter"><div><span class="item">Unsalted butter</span> · <span class="qty">1 box (4 sticks)</span><span class="for">Pecan pie (1 stick), apple filling (2 Tbsp)</span></div></li>
+        <li><input type="checkbox" data-k="s-eggs"><div><span class="item">Large eggs</span> · <span class="qty">7</span><span class="for">Pecan pie (3), pumpkin pie (3), apple pie glaze (1)</span></div></li>
+        <li><input type="checkbox" data-k="s-butter"><div><span class="item">Unsalted butter</span> · <span class="qty">10 Tbsp (1¼ sticks)</span><span class="for">Pecan pie (1 stick), apple filling (2 Tbsp)</span></div></li>
       </ul>
     </div>
 
     <div class="shop">
       <h3>Crusts &amp; canned</h3>
       <ul>
-        <li><input type="checkbox" data-k="s-crust"><div><span class="item">Refrigerated pie crusts</span> · <span class="qty">2 boxes (4 crusts)</span><span class="for">Apple (2: top and bottom), pecan (1), pumpkin (1). The rolled kind, 2 per box, so the apple pie gets a top crust.</span></div></li>
-        <li><input type="checkbox" data-k="s-pumpkin"><div><span class="item">Pumpkin purée</span> · <span class="qty">two 15-oz cans</span><span class="for">Pumpkin pie (2 cups). Plain purée, not "pumpkin pie filling." One 29-oz can works too.</span></div></li>
+        <li><input type="checkbox" data-k="s-crust"><div><span class="item">Refrigerated pie crusts</span> · <span class="qty">4 crusts</span><span class="for">Apple (2: top and bottom), pecan (1), pumpkin (1). The rolled refrigerated kind, so the apple pie gets a top crust.</span></div></li>
+        <li><input type="checkbox" data-k="s-pumpkin"><div><span class="item">Pumpkin purée</span> · <span class="qty">2 cups</span><span class="for">Pumpkin pie. Plain purée, not "pumpkin pie filling." A 15-oz can is only ~1¾ cups, so one can isn't quite enough.</span></div></li>
       </ul>
     </div>
 
     <div class="shop">
       <h3>Nuts &amp; sweeteners</h3>
       <ul>
-        <li><input type="checkbox" data-k="s-pecan"><div><span class="item">Pecan halves</span> · <span class="qty">12 oz (~3 cups)</span><span class="for">Pecan pie (1½ cups), relish (1 cup)</span></div></li>
-        <li><input type="checkbox" data-k="s-honey"><div><span class="item">Mild honey (clover)</span> · <span class="qty">16 oz</span><span class="for">Relish (⅔ cup), pecan pie (¼ cup)</span></div></li>
-        <li><input type="checkbox" data-k="s-maple"><div><span class="item">Pure maple syrup</span> · <span class="qty">small bottle</span><span class="for">Pecan pie (¼ cup)</span></div></li>
-        <li><input type="checkbox" data-k="s-brown"><div><span class="item">Light brown sugar</span> · <span class="qty">1 lb bag</span><span class="for">Pecan (1 cup), apple (½ cup), pumpkin (2 Tbsp)</span></div></li>
-        <li><input type="checkbox" data-k="s-sugar"><div><span class="item">Granulated sugar</span> · <span class="qty">~6 Tbsp</span><span class="for">Apple (2 Tbsp), pumpkin (2 Tbsp), whipped cream (2 Tbsp)</span></div></li>
+        <li><input type="checkbox" data-k="s-pecan"><div><span class="item">Pecan halves</span> · <span class="qty">2½ cups (~10 oz)</span><span class="for">Pecan pie (1½ cups), relish (1 cup)</span></div></li>
+        <li><input type="checkbox" data-k="s-honey"><div><span class="item">Mild honey (clover)</span> · <span class="qty">about 1 cup</span><span class="for">Relish (⅔ cup), pecan pie (¼ cup)</span></div></li>
+        <li><input type="checkbox" data-k="s-maple"><div><span class="item">Pure maple syrup</span> · <span class="qty">¼ cup</span><span class="for">Pecan pie (¼ cup)</span></div></li>
+        <li><input type="checkbox" data-k="s-brown"><div><span class="item">Light brown sugar</span> · <span class="qty">1⅝ cups</span><span class="for">Pecan (1 cup), apple (½ cup), pumpkin (2 Tbsp)</span></div></li>
+        <li><input type="checkbox" data-k="s-sugar"><div><span class="item">Granulated sugar</span> · <span class="qty">6 Tbsp</span><span class="for">Apple (2 Tbsp), pumpkin (2 Tbsp), whipped cream (2 Tbsp)</span></div></li>
         <li><input type="checkbox" data-k="s-molasses"><div><span class="item">Molasses</span> · <span class="qty">2 Tbsp</span><span class="for">Pumpkin pie</span></div></li>
       </ul>
     </div>
@@ -324,7 +324,7 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
       <h3>Spices &amp; pantry</h3>
       <ul>
         <li><input type="checkbox" data-k="s-cinn"><div><span class="item">Ground cinnamon</span> · <span class="qty">1 Tbsp</span><span class="for">Apple (1 tsp), pumpkin (2 tsp)</span></div></li>
-        <li><input type="checkbox" data-k="s-cloves"><div><span class="item">Ground cloves</span> · <span class="qty">~½ tsp</span><span class="for">Pumpkin (½ tsp), apple (a pinch)</span></div></li>
+        <li><input type="checkbox" data-k="s-cloves"><div><span class="item">Ground cloves</span> · <span class="qty">½ tsp + a pinch</span><span class="for">Pumpkin (½ tsp), apple (a pinch)</span></div></li>
         <li><input type="checkbox" data-k="s-gginger"><div><span class="item">Ground ginger</span> · <span class="qty">½ tsp</span><span class="for">Apple pie (plus 1 tsp for the pumpkin if not using fresh)</span></div></li>
         <li><input type="checkbox" data-k="s-nutmeg"><div><span class="item">Nutmeg</span> · <span class="qty">½ tsp</span><span class="for">Apple pie</span></div></li>
         <li><input type="checkbox" data-k="s-corn"><div><span class="item">Cornstarch</span> · <span class="qty">2 Tbsp</span><span class="for">Apple pie</span></div></li>
@@ -473,7 +473,7 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
     var item = li.querySelector('.item'), qty = li.querySelector('.qty');
     if (item) lines.push(item.textContent.trim() + (qty ? ' — ' + qty.textContent.trim() : ''));
   });
-  var listText = lines.join('\n');
+  var listText = 'Amounts needed (check the pantry first):\n' + lines.join('\n');
   var pre = document.getElementById('plain-list');
   pre.textContent = listText;
   var msg = document.getElementById('copy-msg');
