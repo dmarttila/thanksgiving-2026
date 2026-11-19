@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pies &amp; Relish Plan</title>
+<meta name="description" content="Plan and shopping list for three pies and cranberry-orange relish for Thanksgiving, Thursday November 26, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fbf7f1;
+  --surface: #ffffff;
+  --ink: #2b211b;
+  --muted: #74655a;
+  --line: #e7ddd0;
+  --accent: #a3361f;      /* cranberry-brick */
+  --accent-soft: #f6e3da;
+  --gold: #b7791f;
+  --gold-soft: #f8ecd4;
+  --green: #4f6b3a;
+  --green-soft: #e6eedd;
+  --check: #a3361f;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1b1613; --surface: #241e1a; --ink: #f1e9e1; --muted: #b3a597; --line: #3a312a;
+    --accent: #e0775c; --accent-soft: #3a241d; --gold: #e0b062; --gold-soft: #352a19;
+    --green: #a8c48d; --green-soft: #26301f; --check: #e0775c;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1b1613; --surface: #241e1a; --ink: #f1e9e1; --muted: #b3a597; --line: #3a312a;
+  --accent: #e0775c; --accent-soft: #3a241d; --gold: #e0b062; --gold-soft: #352a19;
+  --green: #a8c48d; --green-soft: #26301f; --check: #e0775c;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 16px/1.55 Inter, system-ui, -apple-system, sans-serif;
+}
+h1, h2, h3 { font-family: Fraunces, Georgia, serif; line-height: 1.2; margin: 0; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+
+header.hero { padding: 48px 0 28px; border-bottom: 1px solid var(--line); }
+.eyebrow { color: var(--accent); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+h1 { font-size: clamp(34px, 6vw, 52px); font-weight: 700; margin: 6px 0 10px; }
+.lede { color: var(--muted); max-width: 640px; margin: 0; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.fact { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; font-size: 14px; }
+.fact b { display: block; font-size: 12px; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: .05em; }
+
+nav.toc { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+nav.toc .wrap { display: flex; gap: 4px; overflow-x: auto; padding-top: 8px; padding-bottom: 8px; }
+nav.toc a { color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+nav.toc a:hover { background: var(--accent-soft); color: var(--accent); }
+
+section { padding: 40px 0 8px; }
+section > h2 { font-size: 30px; margin-bottom: 6px; }
+section > .sub { color: var(--muted); margin: 0 0 22px; }
+
+.callout { border-left: 4px solid var(--gold); background: var(--gold-soft); padding: 14px 16px; border-radius: 0 10px 10px 0; margin: 0 0 18px; }
+.callout.red { border-color: var(--accent); background: var(--accent-soft); }
+.callout.green { border-color: var(--green); background: var(--green-soft); }
+.callout p { margin: 0; }
+.callout p + p { margin-top: 6px; }
+
+/* Day cards */
+.day { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin-bottom: 18px; }
+.day-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 12px; }
+.day-head h3 { font-size: 22px; }
+.who { font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--green-soft); color: var(--green); }
+.who.you { background: var(--accent-soft); color: var(--accent); }
+.day ul.tasks { list-style: none; padding: 0; margin: 0; }
+.tasks li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding: 9px 0; border-top: 1px dashed var(--line); }
+.tasks li:first-child { border-top: 0; }
+.tasks .dish { font-weight: 600; }
+.tasks .note { color: var(--muted); font-size: 14px; }
+
+/* Thursday timeline */
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; }
+.controls label { font-weight: 600; }
+select { font: inherit; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+ol.timeline { list-style: none; padding: 0; margin: 0; }
+.timeline li { display: grid; grid-template-columns: 22px 84px 1fr; gap: 10px; padding: 10px 0; border-top: 1px dashed var(--line); align-items: start; }
+.timeline li:first-child { border-top: 0; }
+.timeline time { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--accent); }
+.timeline li.key time { color: var(--ink); }
+.timeline li.key .what { font-weight: 600; }
+.oven { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: var(--gold-soft); color: var(--gold); margin-left: 4px; white-space: nowrap; }
+
+/* Checkboxes */
+input[type=checkbox] { appearance: none; -webkit-appearance: none; width: 18px; height: 18px; margin: 3px 0 0; border: 2px solid var(--muted); border-radius: 5px; cursor: pointer; display: grid; place-content: center; background: var(--surface); }
+input[type=checkbox]::after { content: ""; width: 9px; height: 5px; border: solid #fff; border-width: 0 0 2.5px 2.5px; transform: rotate(-45deg) translate(1px,-1px); opacity: 0; }
+input[type=checkbox]:checked { background: var(--check); border-color: var(--check); }
+input[type=checkbox]:checked::after { opacity: 1; }
+li:has(input:checked) .dish, li:has(input:checked) .what, li:has(input:checked) .item { text-decoration: line-through; color: var(--muted); }
+
+/* Shopping */
+.shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.shop { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; break-inside: avoid; }
+.shop h3 { font-size: 18px; margin-bottom: 6px; }
+.shop ul { list-style: none; padding: 0; margin: 0; }
+.shop li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding: 7px 0; border-top: 1px dashed var(--line); }
+.shop li:first-child { border-top: 0; }
+.item { font-weight: 500; }
+.qty { color: var(--accent); font-weight: 600; }
+.for { display: block; color: var(--muted); font-size: 13px; }
+.shop-actions { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+button { font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+button:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Recipes */
+.recipes { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.recipe { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; break-inside: avoid; }
+.recipe h3 { font-size: 19px; }
+.rlink { color: var(--ink); text-decoration: none; }
+.rlink:hover { color: var(--accent); text-decoration: underline; }
+.rlink span { font-size: 14px; color: var(--accent); }
+.recipe .by { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+.scale { display: inline-block; font-size: 12px; font-weight: 600; background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 999px; margin-bottom: 8px; }
+.recipe ul { margin: 0 0 10px; padding-left: 18px; font-size: 14.5px; }
+.recipe li { margin: 2px 0; }
+.recipe p { font-size: 14px; color: var(--muted); margin: 0; }
+.recipe p b { color: var(--ink); }
+
+.equip { columns: 2 260px; column-gap: 28px; padding-left: 18px; }
+.equip li { margin: 4px 0; break-inside: avoid; }
+
+footer { color: var(--muted); font-size: 13px; padding: 40px 0 60px; border-top: 1px solid var(--line); margin-top: 40px; }
+
+@media (max-width: 520px) {
+  .timeline li { grid-template-columns: 22px 70px 1fr; }
+  .day { padding: 16px; }
+}
+
+/* Recipe unlock dialog */
+dialog#unlock { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--surface); color: var(--ink); width: min(360px, calc(100vw - 32px)); }
+dialog#unlock::backdrop { background: rgb(0 0 0 / .45); }
+dialog#unlock h3 { font-size: 20px; margin-bottom: 4px; }
+dialog#unlock p { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
+dialog#unlock label { display: block; font-size: 13px; font-weight: 600; margin: 10px 0 4px; }
+dialog#unlock input { width: 100%; font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); }
+dialog#unlock .err { color: var(--accent); font-size: 14px; min-height: 20px; margin-top: 8px; }
+dialog#unlock .row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 6px; }
+dialog#unlock button[type=submit] { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+@media print {
+  :root { --bg: #fff; --surface: #fff; }
+  @page { margin: 0.5in; }
+  html { zoom: 0.8; }
+  body { font-size: 9.5pt; line-height: 1.4; }
+  header.hero { padding-bottom: 12px; }
+  h1 { font-size: 30pt; }
+  section > h2 { font-size: 18pt; }
+  section > .sub { margin-bottom: 10px; }
+  .callout { padding: 8px 12px; margin-bottom: 8px; }
+  .day { padding: 10px 14px; margin-bottom: 10px; }
+  .tasks li, .timeline li { padding: 5px 0; }
+  .shop-grid { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .shop { padding: 10px 12px; }
+  .shop li { padding: 3px 0; }
+  .recipes { grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .recipe { padding: 10px 12px; }
+  .recipe ul { font-size: 9pt; }
+  .recipe p { font-size: 8.5pt; }
+  footer { padding: 12px 0; margin-top: 12px; }
+  nav.toc, .controls, .shop-actions, .no-print { display: none !important; }
+  header.hero { padding-top: 0; }
+  section { padding-top: 18px; }
+  section.page { break-before: page; }
+  .day, .shop, .recipe { break-inside: avoid; }
+  input[type=checkbox] { border-color: #555; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Thursday, November 26, 2026 · Pies &amp; relish for 14</div>
+    <h1>Pies &amp; Relish Plan</h1>
+    <p class="lede">Three pies and a cranberry relish. The relish and apple filling get made Tuesday night, all three pies bake Wednesday, and Thursday is just whipping cream, scooping ice cream, and slicing.</p>
+    <div class="facts">
+      <div class="fact"><b>Making</b>Apple, pecan, pumpkin pie + relish</div>
+      <div class="fact"><b>Tuesday night</b>~1 hr</div>
+      <div class="fact"><b>Wednesday</b>~4 hrs, mostly oven time</div>
+      <div class="fact"><b>Thursday</b>~10 min</div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#schedule">Tue–Wed</a>
+    <a href="#thursday">Thursday</a>
+    <a href="#shopping">Shopping list</a>
+    <a href="#recipes">Recipes</a>
+    <a href="#equipment">Equipment</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="schedule">
+  <h2>Tuesday – Wednesday</h2>
+  <p class="sub">Checkboxes save in this browser, so you can tick things off as you go.</p>
+
+  <div class="callout">
+    <p><b>Why bake everything Wednesday:</b> the apple and pecan pies are both written to be baked up to a day ahead and kept at room temperature. Pumpkin is a custard, so it goes in the fridge once it cools. That frees the oven on Thursday for whoever is cooking dinner.</p>
+  </div>
+
+  <div class="day">
+    <div class="day-head"><h3>Tuesday, Nov 24 · evening</h3><span class="who">~1 hr</span></div>
+    <ul class="tasks">
+      <li><input type="checkbox" data-k="tue-shop"><div><span class="dish">Do the shop</span><div class="note">Everything on the list below. Let the eggs and butter for the pecan pie come to room temperature on Wednesday.</div></div></li>
+      <li><input type="checkbox" data-k="tue-relish"><div><span class="dish">Make the cranberry-orange relish (2×)</span><div class="note">5 min. Pulse it in the food processor <b>in two batches</b> until it's very finely chopped but still crunchy. Refrigerate. The recipe says it tastes better after a day or two.</div></div></li>
+      <li><input type="checkbox" data-k="tue-apple"><div><span class="dish">Cook the apple filling</span><div class="note">25–30 min. Peel and slice the apples, then sauté in butter with the sugars, spices, and salt until soft but still holding their shape (Steps 1–4). Spread on a sheet pan to cool, then refrigerate. The recipe allows up to 24 hours ahead.</div></div></li>
+      <li><input type="checkbox" data-k="tue-crusts"><div><span class="dish">Line the three pie plates and freeze them</span><div class="note">Unroll one store-bought crust into each pie plate, crimp the edges, and freeze. The recipes allow up to 24 hours. Keep the fourth crust (the apple pie's top) in the fridge.</div></div></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-head"><h3>Wednesday, Nov 25</h3><span class="who">Bake day · ~4 hrs</span></div>
+    <p class="note" style="color:var(--muted);font-size:14px;margin:0 0 10px">One oven, one pie at a time, in this order. Keep a rimmed sheet pan on the middle rack the whole time; every pie bakes on it.</p>
+    <ol class="timeline">
+      <li><input type="checkbox" data-k="wed-1"><time>0:00</time><div class="what">Preheat to 425°F with the sheet pan inside <span class="oven">425°</span></div></li>
+      <li><input type="checkbox" data-k="wed-2"><time>0:15</time><div class="what">Blind-bake the pumpkin crust <span class="oven">425° · ~20 min</span><div class="note" style="color:var(--muted);font-size:14px">Line the frozen crust with foil, fill with pie weights or dried beans, and bake 15 min. Lift out the foil and weights and bake about 5 min more, until pale golden. Cool on a rack. If the crust box gives different blind-baking directions, follow those.</div></div></li>
+      <li class="key"><input type="checkbox" data-k="wed-3"><time>0:35</time><div class="what">Apple pie goes in <span class="oven">425° · 20 min</span><div class="note" style="color:var(--muted);font-size:14px">Spread the cold filling in the frozen bottom crust, unroll the fourth crust over the top, crimp, brush with cream or egg, sprinkle with sugar, and cut steam vents.</div></div></li>
+      <li><input type="checkbox" data-k="wed-4"><time>0:55</time><div class="what">Turn the oven down to 375°F and bake 30–40 min more <span class="oven">375°</span><div class="note" style="color:var(--muted);font-size:14px">It's done when the filling bubbles through the vents and the crust is golden brown.</div></div></li>
+      <li class="key"><input type="checkbox" data-k="wed-5"><time>1:30</time><div class="what">Apple pie out. Turn the oven up to 450°F <span class="oven">450°</span><div class="note" style="color:var(--muted);font-size:14px">Cool on a rack at room temperature. <b>Don't refrigerate it.</b> While the oven heats, whisk the pumpkin filling together.</div></div></li>
+      <li class="key"><input type="checkbox" data-k="wed-6"><time>1:40</time><div class="what">Pumpkin pie goes in <span class="oven">450° · 10 min</span><div class="note" style="color:var(--muted);font-size:14px">Pour the filling into the blind-baked crust. Any extra can bake in a small dish as crustless custard.</div></div></li>
+      <li><input type="checkbox" data-k="wed-7"><time>1:50</time><div class="what">Turn the oven down to 350°F and bake about 35 min more, until set <span class="oven">350°</span><div class="note" style="color:var(--muted);font-size:14px">Meanwhile, start the pecan filling: brown the butter, cook in the maple syrup, whisk in the honey, and let it cool 10 min. Then whisk it into the eggs, sugars, vanilla, salt, and bourbon.</div></div></li>
+      <li class="key"><input type="checkbox" data-k="wed-8"><time>2:25</time><div class="what">Pumpkin pie out. Turn the oven up to 400°F <span class="oven">400°</span><div class="note" style="color:var(--muted);font-size:14px">Cool it on a rack, then refrigerate once it's at room temperature.</div></div></li>
+      <li class="key"><input type="checkbox" data-k="wed-9"><time>2:35</time><div class="what">Pecan pie goes in <span class="oven">400° · 10 min</span><div class="note" style="color:var(--muted);font-size:14px">Spread the pecans over the frozen crust and pour the filling over them.</div></div></li>
+      <li><input type="checkbox" data-k="wed-10"><time>2:45</time><div class="what">Turn the oven down to 350°F and bake 35–45 min more <span class="oven">350°</span><div class="note" style="color:var(--muted);font-size:14px">It's done when the center has puffed up and turned golden brown.</div></div></li>
+      <li class="key"><input type="checkbox" data-k="wed-11"><time>3:25</time><div class="what">Pecan pie out. Sprinkle with flaky salt if you like.<div class="note" style="color:var(--muted);font-size:14px">Cool at least 2 hours, then keep it covered at room temperature overnight. Oven off. Done.</div></div></li>
+    </ol>
+    <p class="note" style="color:var(--muted);font-size:14px;margin:10px 0 0">Times are from when you turn the oven on. Pies vary, so check them at the low end of each range.</p>
+  </div>
+</section>
+
+<section id="thursday">
+  <h2>Thursday, Nov 26</h2>
+  <p class="sub">No oven needed.</p>
+  <div class="day">
+    <ul class="tasks">
+      <li><input type="checkbox" data-k="thu-relish"><div><span class="dish">Set out the relish with dinner</span><div class="note">Give it a stir. Leftovers are good with yogurt or on a turkey sandwich.</div></div></li>
+      <li><input type="checkbox" data-k="thu-pumpkin"><div><span class="dish">Take the pumpkin pie out of the fridge</span><div class="note">About 30 min before dessert, so it isn't ice-cold.</div></div></li>
+      <li><input type="checkbox" data-k="thu-whip"><div><span class="dish">Whip the cream right before dessert</span><div class="note">1 pint heavy cream with 2 Tbsp sugar, whipped to soft peaks. Keep the can of whipped cream as backup.</div></div></li>
+      <li><input type="checkbox" data-k="thu-ice"><div><span class="dish">Take the ice cream out to soften</span><div class="note">About 10 min before serving so it scoops easily.</div></div></li>
+      <li><input type="checkbox" data-k="thu-slice"><div><span class="dish">Slice the pies</span><div class="note">8 slices each, so 24 slices for 14 people. Plenty of people will want a sliver of two kinds.</div></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="shopping" class="page">
+  <h2>Shopping list</h2>
+  <p class="sub">All four recipes combined. The small print says which recipe each item is for.</p>
+  <div class="shop-actions"><button type="button" id="clear-shop">Uncheck all</button></div>
+
+  <div class="shop-grid">
+    <div class="shop">
+      <h3>Dessert toppings</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-icecream"><div><span class="item">Vanilla ice cream</span> · <span class="qty">2 quarts</span><span class="for">About ½ cup per person for 14, with a little extra</span></div></li>
+        <li><input type="checkbox" data-k="s-cream"><div><span class="item">Heavy cream</span> · <span class="qty">1 pint</span><span class="for">Whipped cream (makes ~4 cups), plus a splash to brush the apple pie</span></div></li>
+        <li><input type="checkbox" data-k="s-whipcan"><div><span class="item">Canned whipped cream</span> · <span class="qty">1 can</span><span class="for">Backup, and for the kids' table</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Produce</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-apples"><div><span class="item">Firm, crisp apples</span> · <span class="qty">3½ lb (7–8 large)</span><span class="for">Apple pie. All one kind: Honeycrisp is sweetest, Granny Smith most tart, Golden Delicious in between.</span></div></li>
+        <li><input type="checkbox" data-k="s-cran"><div><span class="item">Fresh cranberries</span> · <span class="qty">2 bags (12 oz)</span><span class="for">Relish</span></div></li>
+        <li><input type="checkbox" data-k="s-orange"><div><span class="item">Navel oranges</span> · <span class="qty">2</span><span class="for">Relish</span></div></li>
+        <li><input type="checkbox" data-k="s-lemon"><div><span class="item">Lemon</span> · <span class="qty">1</span><span class="for">Apple pie (1½ tsp juice, ½ tsp zest)</span></div></li>
+        <li><input type="checkbox" data-k="s-ginger"><div><span class="item">Fresh ginger</span> · <span class="qty">3-inch piece</span><span class="for">Pumpkin pie (2 Tbsp grated). Or use 1 tsp ground ginger instead.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Dairy &amp; eggs</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-eggs"><div><span class="item">Large eggs</span> · <span class="qty">1 dozen</span><span class="for">Pecan pie (3), pumpkin pie (3), apple pie glaze (1)</span></div></li>
+        <li><input type="checkbox" data-k="s-butter"><div><span class="item">Unsalted butter</span> · <span class="qty">1 box (4 sticks)</span><span class="for">Pecan pie (1 stick), apple filling (2 Tbsp)</span></div></li>
+        <li><input type="checkbox" data-k="s-evap"><div><span class="item">Evaporated milk</span> · <span class="qty">one 12-oz can</span><span class="for">Pumpkin pie (1½ cups). Or use another 1½ cups heavy cream.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Crusts &amp; canned</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-crust"><div><span class="item">Refrigerated pie crusts</span> · <span class="qty">2 boxes (4 crusts)</span><span class="for">Apple (2: top and bottom), pecan (1), pumpkin (1). The rolled kind, 2 per box, so the apple pie gets a top crust.</span></div></li>
+        <li><input type="checkbox" data-k="s-pumpkin"><div><span class="item">Pumpkin purée</span> · <span class="qty">two 15-oz cans</span><span class="for">Pumpkin pie (2 cups). Plain purée, not "pumpkin pie filling." One 29-oz can works too.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Nuts &amp; sweeteners</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-pecan"><div><span class="item">Pecan halves</span> · <span class="qty">12 oz (~3 cups)</span><span class="for">Pecan pie (1½ cups), relish (1 cup)</span></div></li>
+        <li><input type="checkbox" data-k="s-honey"><div><span class="item">Mild honey (clover)</span> · <span class="qty">16 oz</span><span class="for">Relish (⅔ cup), pecan pie (¼ cup)</span></div></li>
+        <li><input type="checkbox" data-k="s-maple"><div><span class="item">Pure maple syrup</span> · <span class="qty">small bottle</span><span class="for">Pecan pie (¼ cup)</span></div></li>
+        <li><input type="checkbox" data-k="s-brown"><div><span class="item">Light brown sugar</span> · <span class="qty">1 lb bag</span><span class="for">Apple (½ cup), pecan (½ cup), pumpkin (2 Tbsp)</span></div></li>
+        <li><input type="checkbox" data-k="s-sugar"><div><span class="item">Granulated sugar</span> · <span class="qty">~6 Tbsp</span><span class="for">Apple (2 Tbsp), pumpkin (2 Tbsp), whipped cream (2 Tbsp)</span></div></li>
+        <li><input type="checkbox" data-k="s-maplesugar"><div><span class="item">Maple sugar</span> · <span class="qty">½ cup · optional</span><span class="for">Pecan pie. Skip it and use another ½ cup brown sugar.</span></div></li>
+        <li><input type="checkbox" data-k="s-molasses"><div><span class="item">Molasses</span> · <span class="qty">2 Tbsp</span><span class="for">Pumpkin pie</span></div></li>
+        <li><input type="checkbox" data-k="s-demerara"><div><span class="item">Demerara sugar</span> · <span class="qty">optional</span><span class="for">Sprinkled on the apple pie</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Spices &amp; pantry</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-cinn"><div><span class="item">Ground cinnamon</span> · <span class="qty">1 Tbsp</span><span class="for">Apple (1 tsp), pumpkin (2 tsp)</span></div></li>
+        <li><input type="checkbox" data-k="s-cloves"><div><span class="item">Ground cloves</span> · <span class="qty">~½ tsp</span><span class="for">Pumpkin (½ tsp), apple (a pinch)</span></div></li>
+        <li><input type="checkbox" data-k="s-gginger"><div><span class="item">Ground ginger</span> · <span class="qty">½ tsp</span><span class="for">Apple pie (plus 1 tsp for the pumpkin if not using fresh)</span></div></li>
+        <li><input type="checkbox" data-k="s-nutmeg"><div><span class="item">Nutmeg</span> · <span class="qty">½ tsp</span><span class="for">Apple pie</span></div></li>
+        <li><input type="checkbox" data-k="s-corn"><div><span class="item">Cornstarch</span> · <span class="qty">2 Tbsp</span><span class="for">Apple pie</span></div></li>
+        <li><input type="checkbox" data-k="s-vanilla"><div><span class="item">Vanilla extract</span> · <span class="qty">1 tsp</span><span class="for">Pecan pie</span></div></li>
+        <li><input type="checkbox" data-k="s-salt"><div><span class="item">Kosher salt, fine sea salt</span> · <span class="qty">small amounts</span><span class="for">All three pies</span></div></li>
+        <li><input type="checkbox" data-k="s-flaky"><div><span class="item">Flaky sea salt (Maldon)</span> · <span class="qty">optional</span><span class="for">On top of the pecan pie</span></div></li>
+        <li><input type="checkbox" data-k="s-bourbon"><div><span class="item">Bourbon</span> · <span class="qty">1 Tbsp · optional</span><span class="for">Pecan pie</span></div></li>
+      </ul>
+    </div>
+
+    <div class="shop">
+      <h3>Supplies</h3>
+      <ul>
+        <li><input type="checkbox" data-k="s-weights"><div><span class="item">Pie weights or dried beans</span> · <span class="qty">~2 lb beans</span><span class="for">Blind-baking the pumpkin crust</span></div></li>
+        <li><input type="checkbox" data-k="s-foil"><div><span class="item">Foil</span> · <span class="qty">1 roll</span><span class="for">Blind-baking, covering pies overnight</span></div></li>
+        <li><input type="checkbox" data-k="s-plates"><div><span class="item">9-inch metal pie plates</span> · <span class="qty">3, if you don't have them</span><span class="for">The recipes call for metal. See the equipment note.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="recipes" class="page">
+  <h2>Recipes</h2>
+  <p class="sub">Each pie is one batch (8 slices), so three pies give 24 slices for 14 people; the relish is doubled (16 servings). Click a recipe name to open the original PDF with the full method (password required).</p>
+  <div class="recipes">
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/apple-pie.pdf" target="_blank" rel="noopener">Classic Apple Pie <span aria-hidden="true">↗</span></a></h3><div class="by">Melissa Clark</div>
+      <span class="scale">1× · 8 slices</span>
+      <ul>
+        <li>3½ lb apples, peeled, cored, in ¼-inch wedges (~11 cups)</li>
+        <li>2 Tbsp unsalted butter</li>
+        <li>½ cup light brown sugar · 2 Tbsp granulated sugar</li>
+        <li>1 tsp cinnamon · ½ tsp ginger · ½ tsp nutmeg · pinch of cloves</li>
+        <li>¼ tsp fine sea salt · 2 Tbsp cornstarch</li>
+        <li>1½ tsp lemon juice · ½ tsp lemon zest</li>
+        <li>2 store-bought crusts (bottom and top)</li>
+        <li>Cream or beaten egg, demerara sugar (optional)</li>
+      </ul>
+      <p><b>When:</b> Filling Tuesday night. Bake Wednesday: 20 min at 425°F, then 30–40 min at 375°F. Keep at room temperature.</p>
+    </div>
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/pecan-pie.pdf" target="_blank" rel="noopener">Maple-Honey Pecan Pie <span aria-hidden="true">↗</span></a></h3><div class="by">Melissa Clark</div>
+      <span class="scale">1× · 8 slices</span>
+      <ul>
+        <li>1 store-bought crust</li>
+        <li>½ cup (1 stick) unsalted butter</li>
+        <li>¼ cup maple syrup · ¼ cup honey</li>
+        <li>½ cup light brown sugar</li>
+        <li>½ cup maple sugar (or more brown sugar)</li>
+        <li>3 large eggs, room temperature</li>
+        <li>1 Tbsp bourbon (optional) · 1 tsp vanilla</li>
+        <li>¾ tsp kosher salt · 1½ cups pecan halves</li>
+        <li>Flaky sea salt (optional)</li>
+      </ul>
+      <p><b>When:</b> Wednesday, last in the oven: 10 min at 400°F, then 35–45 min at 350°F. Keeps 24+ hrs at room temperature.</p>
+    </div>
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/pumpkin-pie.pdf" target="_blank" rel="noopener">Pumpkin Pie <span aria-hidden="true">↗</span></a></h3><div class="by">The New York Times</div>
+      <span class="scale">1× · one 9-inch pie</span>
+      <ul>
+        <li>2 cups pumpkin purée</li>
+        <li>3 eggs</li>
+        <li>2 Tbsp granulated sugar · 2 Tbsp brown sugar</li>
+        <li>2 Tbsp molasses</li>
+        <li>1½ cups evaporated milk or heavy cream</li>
+        <li>½ tsp ground cloves · 2 tsp cinnamon</li>
+        <li>2 Tbsp grated fresh ginger (or 1 tsp ground)</li>
+        <li>½ tsp salt</li>
+        <li>1 store-bought crust, blind-baked</li>
+      </ul>
+      <p><b>When:</b> Wednesday: whisk everything, pour into the crust, 10 min at 450°F, then ~35 min at 350°F. Refrigerate once cool.</p>
+    </div>
+    <div class="recipe">
+      <h3><a class="rlink" href="recipes/cranberry-relish.pdf" target="_blank" rel="noopener">Cranberry-Orange Relish <span aria-hidden="true">↗</span></a></h3><div class="by">Martha Rose Shulman</div>
+      <span class="scale">2× · 16 servings</span>
+      <ul>
+        <li>2 bags fresh cranberries</li>
+        <li>2 navel oranges, skin on, in chunks</li>
+        <li>1 cup pecans</li>
+        <li>⅔ cup mild honey</li>
+      </ul>
+      <p><b>When:</b> Tuesday night. Process in two batches; it must be a food processor, not a blender.</p>
+    </div>
+  </div>
+</section>
+
+<section id="equipment">
+  <h2>Equipment check</h2>
+  <p class="sub">Find these before Tuesday.</p>
+  <div class="callout">
+    <p><b>Metal pie plates, if you can.</b> Both Melissa Clark recipes call for metal. Glass doesn't conduct heat as well, so the bottom crust may not cook through. With glass, blind-bake the pecan crust the same way as the pumpkin one (15 min with weights, then 5 min uncovered), and consider doing the same for the apple pie's bottom crust.</p>
+  </div>
+  <ul class="equip">
+    <li>Three 9-inch pie plates, metal preferred</li>
+    <li>Rimmed sheet pan for the oven (all pies bake on it)</li>
+    <li>A second sheet pan for cooling the apple filling</li>
+    <li>Large skillet (apple filling)</li>
+    <li>Small saucepan (browned butter and syrup)</li>
+    <li>Food processor (relish)</li>
+    <li>Pie weights or dried beans</li>
+    <li>Wire cooling rack</li>
+    <li>Mixing bowls, whisk, rubber spatula</li>
+    <li>Pastry brush</li>
+    <li>Fridge space for the relish, apple filling, and pumpkin pie</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Recipes from NYT Cooking: Melissa Clark, Martha Rose Shulman, and The New York Times. This page is a planning companion; the original recipes have the full methods. <a href="./" style="color:inherit">Full dinner plan</a></div>
+</footer>
+
+<dialog id="unlock">
+  <form id="unlock-form">
+    <h3>Recipe PDFs</h3>
+    <p>The original recipes are password-protected.</p>
+    <label for="u-user">Username</label>
+    <input id="u-user" name="user" autocomplete="username" autocapitalize="off" required>
+    <label for="u-pass">Password</label>
+    <input id="u-pass" name="pass" type="password" autocomplete="current-password" required>
+    <div class="err" id="u-err" role="alert"></div>
+    <div class="row"><button type="button" id="u-cancel">Cancel</button><button type="submit">Open recipe</button></div>
+  </form>
+</dialog>
+
+<script>
+(function () {
+  var store = {
+    get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
+  };
+  var PREFIX = 'tg26pies:';
+
+  // Checkboxes
+  var boxes = document.querySelectorAll('input[type=checkbox][data-k]');
+  boxes.forEach(function (b) {
+    if (store.get(PREFIX + b.dataset.k) === '1') b.checked = true;
+    b.addEventListener('change', function () {
+      if (b.checked) store.set(PREFIX + b.dataset.k, '1'); else store.del(PREFIX + b.dataset.k);
+    });
+  });
+  document.getElementById('clear-shop').addEventListener('click', function () {
+    document.querySelectorAll('#shopping input[type=checkbox]').forEach(function (b) {
+      b.checked = false; store.del(PREFIX + b.dataset.k);
+    });
+  });
+
+  // Encrypted recipe PDFs: recipes/<name>.pdf.enc = salt16 | iv12 | AES-256-GCM(ciphertext+tag),
+  // key = PBKDF2-SHA256("user:pass", salt, 150000).
+  var CRED = 'tg26:cred'; // shared with the main plan page
+  function sget(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
+  function sset(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
+  function sdel(k) { try { sessionStorage.removeItem(k); } catch (e) {} }
+
+  async function decryptPdf(href, cred) {
+    var res = await fetch(href + '.enc');
+    if (!res.ok) throw new Error('fetch');
+    var buf = new Uint8Array(await res.arrayBuffer());
+    var subtle = crypto.subtle;
+    var base = await subtle.importKey('raw', new TextEncoder().encode(cred), 'PBKDF2', false, ['deriveKey']);
+    var key = await subtle.deriveKey({ name: 'PBKDF2', salt: buf.slice(0, 16), iterations: 150000, hash: 'SHA-256' },
+      base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    var plain = await subtle.decrypt({ name: 'AES-GCM', iv: buf.slice(16, 28) }, key, buf.slice(28));
+    return URL.createObjectURL(new Blob([plain], { type: 'application/pdf' }));
+  }
+
+  // Open a window synchronously (inside the click) so popup blockers allow it, then point it at the PDF.
+  async function openWith(href, cred) {
+    var win = window.open('', '_blank');
+    if (win) { try { win.document.title = 'Opening recipe…'; win.document.body.textContent = 'Opening recipe…'; } catch (e) {} }
+    try {
+      var url = await decryptPdf(href, cred);
+      if (win) win.location.href = url; else location.href = url;
+      return true;
+    } catch (e) {
+      if (win) win.close();
+      return false;
+    }
+  }
+
+  var dlg = document.getElementById('unlock');
+  var form = document.getElementById('unlock-form');
+  var err = document.getElementById('u-err');
+  var pending = null;
+
+  function ask(href) {
+    pending = href; err.textContent = ''; form.reset();
+    dlg.showModal();
+    document.getElementById('u-user').focus();
+  }
+  document.getElementById('u-cancel').addEventListener('click', function () { dlg.close(); });
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var cred = form.user.value.trim() + ':' + form.pass.value;
+    err.textContent = 'Checking…';
+    if (await openWith(pending, cred)) { sset(CRED, cred); dlg.close(); }
+    else err.textContent = 'That username or password didn\u2019t work.';
+  });
+
+  document.querySelectorAll('a.rlink').forEach(function (a) {
+    a.addEventListener('click', async function (e) {
+      e.preventDefault();
+      var href = a.getAttribute('href');
+      var cred = sget(CRED);
+      if (cred) {
+        if (!(await openWith(href, cred))) { sdel(CRED); ask(href); }
+      } else ask(href);
+    });
+  });
+})();
+</script>
+</body>
+</html>
