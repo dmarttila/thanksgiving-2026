@@ -137,6 +137,14 @@ footer { color: var(--muted); font-size: 13px; padding: 40px 0 60px; border-top:
 .plain-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 10px; }
 .plain-head h3 { font-size: 18px; margin-right: auto; }
 #copy-msg { color: var(--green); font-size: 14px; font-weight: 600; }
+.extra { border-color: var(--gold); background: var(--gold-soft); }
+.extra-list { list-style: none; padding: 0; margin: 0 0 12px; }
+.extra-list li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; padding: 7px 0; border-top: 1px dashed var(--line); }
+.extra-list li:first-child { border-top: 0; }
+li:has(input:checked) .item { text-decoration: line-through; color: var(--muted); }
+#copy-extra-msg { color: var(--green); font-size: 14px; font-weight: 600; }
+#extra-list[hidden] { display: none; }
+#extra-list { margin: 0; padding-top: 10px; border-top: 1px solid var(--line); font: 15px/1.6 Inter, system-ui, sans-serif; white-space: pre-wrap; user-select: all; -webkit-user-select: all; }
 #plain-list { margin: 0; font: 15px/1.6 Inter, system-ui, sans-serif; white-space: pre-wrap; user-select: all; -webkit-user-select: all; }
 @media print { .plain { display: none; } }
 
@@ -269,7 +277,7 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
 <section id="shopping" class="page">
   <h2>Shopping list</h2>
   <p class="sub">All four recipes combined. Amounts are what the recipes use, not package sizes, so check the pantry first and only buy what's missing. The small print says which recipe each item is for.</p>
-  <div class="shop-actions"><button type="button" id="clear-shop">Uncheck all</button><a class="btnlink" href="#plain">Copyable list ↓</a></div>
+  <div class="shop-actions"><button type="button" id="clear-shop">Uncheck all</button><a class="btnlink" href="#plain">Copyable list ↓</a><a class="btnlink" href="#extra">Extra pecan pie items ↓</a></div>
 
   <div class="shop-grid">
     <div class="shop">
@@ -294,8 +302,8 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
     <div class="shop">
       <h3>Dairy &amp; eggs</h3>
       <ul>
-        <li><input type="checkbox" data-k="s-eggs"><div><span class="item">Large eggs</span> · <span class="qty">9</span><span class="for">Pecan pies (5), pumpkin pie (3), brushing the lattices (1)</span></div></li>
-        <li><input type="checkbox" data-k="s-butter"><div><span class="item">Unsalted butter</span> · <span class="qty">15 Tbsp (just under 2 sticks)</span><span class="for">Pecan pies (13 Tbsp), apple filling (2 Tbsp)</span></div></li>
+        <li><input type="checkbox" data-k="s-eggs"><div><span class="item">Large eggs</span> · <span class="qty">10</span><span class="for">Pecan pies (6), pumpkin pie (3), brushing the lattices (1)</span></div></li>
+        <li><input type="checkbox" data-k="s-butter"><div><span class="item">Unsalted butter</span> · <span class="qty">18 Tbsp (2¼ sticks)</span><span class="for">Pecan pies (16 Tbsp, 2 sticks), apple filling (2 Tbsp)</span></div></li>
       </ul>
     </div>
 
@@ -310,10 +318,10 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
     <div class="shop">
       <h3>Nuts &amp; sweeteners</h3>
       <ul>
-        <li><input type="checkbox" data-k="s-pecan"><div><span class="item">Pecan halves</span> · <span class="qty">3½ cups (~14 oz)</span><span class="for">Pecan pies (2½ cups), relish (1 cup)</span></div></li>
-        <li><input type="checkbox" data-k="s-honey"><div><span class="item">Mild honey (clover)</span> · <span class="qty">about 1 cup + 1 Tbsp</span><span class="for">Relish (⅔ cup), pecan pies (⅓ cup + 1 Tbsp)</span></div></li>
-        <li><input type="checkbox" data-k="s-maple"><div><span class="item">Pure maple syrup</span> · <span class="qty">⅓ cup + 1 Tbsp</span><span class="for">Pecan pies</span></div></li>
-        <li><input type="checkbox" data-k="s-brown"><div><span class="item">Light brown sugar</span> · <span class="qty">about 2¼ cups</span><span class="for">Pecan pies (1⅔ cups), apple (½ cup), pumpkin (2 Tbsp)</span></div></li>
+        <li><input type="checkbox" data-k="s-pecan"><div><span class="item">Pecan halves</span> · <span class="qty">4 cups (~1 lb)</span><span class="for">Pecan pies (3 cups), relish (1 cup)</span></div></li>
+        <li><input type="checkbox" data-k="s-honey"><div><span class="item">Mild honey (clover)</span> · <span class="qty">about 1 cup + 3 Tbsp</span><span class="for">Relish (⅔ cup), pecan pies (½ cup)</span></div></li>
+        <li><input type="checkbox" data-k="s-maple"><div><span class="item">Pure maple syrup</span> · <span class="qty">½ cup</span><span class="for">Pecan pies</span></div></li>
+        <li><input type="checkbox" data-k="s-brown"><div><span class="item">Light brown sugar</span> · <span class="qty">about 2⅝ cups</span><span class="for">Pecan pies (2 cups), apple (½ cup), pumpkin (2 Tbsp)</span></div></li>
         <li><input type="checkbox" data-k="s-sugar"><div><span class="item">Granulated sugar</span> · <span class="qty">6 Tbsp</span><span class="for">Apple (2 Tbsp), pumpkin (2 Tbsp), whipped cream (2 Tbsp)</span></div></li>
         <li><input type="checkbox" data-k="s-molasses"><div><span class="item">Molasses</span> · <span class="qty">2 Tbsp</span><span class="for">Pumpkin pie</span></div></li>
       </ul>
@@ -327,7 +335,7 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
         <li><input type="checkbox" data-k="s-gginger"><div><span class="item">Ground ginger</span> · <span class="qty">1½ tsp</span><span class="for">Pumpkin (1 tsp), apple (½ tsp)</span></div></li>
         <li><input type="checkbox" data-k="s-nutmeg"><div><span class="item">Nutmeg</span> · <span class="qty">½ tsp</span><span class="for">Apple pie</span></div></li>
         <li><input type="checkbox" data-k="s-corn"><div><span class="item">Cornstarch</span> · <span class="qty">2 Tbsp</span><span class="for">Apple pie</span></div></li>
-        <li><input type="checkbox" data-k="s-vanilla"><div><span class="item">Vanilla extract</span> · <span class="qty">1½ tsp</span><span class="for">Pecan pies</span></div></li>
+        <li><input type="checkbox" data-k="s-vanilla"><div><span class="item">Vanilla extract</span> · <span class="qty">2 tsp</span><span class="for">Pecan pies</span></div></li>
       </ul>
     </div>
 
@@ -337,11 +345,26 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
     <div class="plain-head"><h3>One list to copy</h3><button type="button" id="copy-shop">Copy list</button><span id="copy-msg" role="status"></span></div>
     <pre id="plain-list"></pre>
   </div>
+
+  <div class="plain extra" id="extra">
+    <div class="plain-head"><h3>Extra to buy for the pecan pies</h3><button type="button" id="copy-extra">Copy list</button><span id="copy-extra-msg" role="status"></span></div>
+    <p class="note" style="color:var(--muted);font-size:14px;margin:0 0 10px">The first version of this list scaled the pecan pie wrong (it assumed the recipe made 1¼ pies; it makes exactly one). If you already shopped from that list, this is what's still missing for two full pecan pies. Check what's left over first: if you bought a whole bag or bottle, you probably already have enough.</p>
+    <ul class="extra-list">
+      <li><input type="checkbox" data-k="x-pecan"><div><span class="item">Pecan halves</span> · <span class="qty">½ cup more</span></div></li>
+      <li><input type="checkbox" data-k="x-brown"><div><span class="item">Light brown sugar</span> · <span class="qty">⅓ cup more</span></div></li>
+      <li><input type="checkbox" data-k="x-butter"><div><span class="item">Unsalted butter</span> · <span class="qty">3 Tbsp more</span></div></li>
+      <li><input type="checkbox" data-k="x-maple"><div><span class="item">Pure maple syrup</span> · <span class="qty">about 2 Tbsp more</span></div></li>
+      <li><input type="checkbox" data-k="x-honey"><div><span class="item">Mild honey</span> · <span class="qty">about 2 Tbsp more</span></div></li>
+      <li><input type="checkbox" data-k="x-eggs"><div><span class="item">Large eggs</span> · <span class="qty">1 more</span></div></li>
+      <li><input type="checkbox" data-k="x-vanilla"><div><span class="item">Vanilla extract</span> · <span class="qty">½ tsp more</span></div></li>
+    </ul>
+    <pre id="extra-list" hidden></pre>
+  </div>
 </section>
 
 <section id="recipes" class="page">
   <h2>Recipes</h2>
-  <p class="sub">Four pies give 32 slices for 14 people. The pecan recipe is scaled up to fill two pies, and the relish is doubled (16 servings). Click a recipe name to open the original PDF with the full method (password required).</p>
+  <p class="sub">Four pies give 32 slices for 14 people. The pecan recipe is doubled for two pies, and the relish is doubled (16 servings). Click a recipe name to open the original PDF with the full method (password required).</p>
   <div class="recipes">
     <div class="recipe">
       <h3><a class="rlink" href="recipes/apple-pie.pdf" target="_blank" rel="noopener">Classic Apple Pie <span aria-hidden="true">↗</span></a></h3><div class="by">Melissa Clark</div>
@@ -360,18 +383,18 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
     </div>
     <div class="recipe">
       <h3><a class="rlink" href="recipes/pecan-pie.pdf" target="_blank" rel="noopener">Maple-Honey Pecan Pie <span aria-hidden="true">↗</span></a></h3><div class="by">Melissa Clark</div>
-      <span class="scale">1.6× · 2 pies</span>
+      <span class="scale">2× · 2 pies</span>
       <ul>
         <li>4 frozen deep-dish shells (2 bottoms, 2 for lattices)</li>
-        <li>13 Tbsp (1½ sticks + 1 Tbsp) unsalted butter</li>
-        <li>⅓ cup + 1 Tbsp maple syrup · ⅓ cup + 1 Tbsp honey</li>
-        <li>1⅔ cups light brown sugar (in place of the maple sugar)</li>
-        <li>5 large eggs, room temperature</li>
-        <li>1½ tsp vanilla · 1½ Tbsp bourbon (optional)</li>
-        <li>1¼ tsp kosher salt · 2½ cups pecan halves</li>
+        <li>1 cup (2 sticks) unsalted butter</li>
+        <li>½ cup maple syrup · ½ cup honey</li>
+        <li>2 cups light brown sugar (in place of the maple sugar)</li>
+        <li>6 large eggs, room temperature</li>
+        <li>2 tsp vanilla · 2 Tbsp bourbon (optional)</li>
+        <li>1½ tsp kosher salt · 3 cups pecan halves</li>
         <li>Flaky sea salt (optional)</li>
       </ul>
-      <p><b>When:</b> Wednesday, both pies together, last in the oven: 10 min at 400°F, then 35–45 min at 350°F. The original makes about 1¼ pies, so this is 1.6×. Keeps 24+ hrs at room temperature.</p>
+      <p><b>When:</b> Wednesday, both pies together, last in the oven: 10 min at 400°F, then 35–45 min at 350°F. The original makes one pie, so this is doubled. Keeps 24+ hrs at room temperature.</p>
     </div>
     <div class="recipe">
       <h3><a class="rlink" href="recipes/pumpkin-pie.pdf" target="_blank" rel="noopener">Pumpkin Pie <span aria-hidden="true">↗</span></a></h3><div class="by">The New York Times</div>
@@ -468,25 +491,30 @@ dialog#unlock button[type=submit] { background: var(--accent); color: #fff; bord
   });
 
   // Plain-text grocery list, built from the shopping cards so the two always match
-  var lines = [];
-  document.querySelectorAll('#shopping .shop li').forEach(function (li) {
-    var item = li.querySelector('.item'), qty = li.querySelector('.qty');
-    if (item) lines.push(item.textContent.trim() + (qty ? ' — ' + qty.textContent.trim() : ''));
-  });
-  var listText = 'Amounts needed (check the pantry first):\n' + lines.join('\n');
-  var pre = document.getElementById('plain-list');
-  pre.textContent = listText;
-  var msg = document.getElementById('copy-msg');
-  document.getElementById('copy-shop').addEventListener('click', function () {
-    function selectIt() {
-      var r = document.createRange(); r.selectNodeContents(pre);
-      var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
-      msg.textContent = 'Selected. Press Copy (or \u2318C).';
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(listText).then(function () { msg.textContent = 'Copied!'; setTimeout(function () { msg.textContent = ''; }, 2500); }, selectIt);
-    } else selectIt();
-  });
+  function copyList(itemsSel, preId, btnId, msgId, header) {
+    var lines = [];
+    document.querySelectorAll(itemsSel).forEach(function (li) {
+      var item = li.querySelector('.item'), qty = li.querySelector('.qty');
+      if (item) lines.push(item.textContent.trim() + (qty ? ' — ' + qty.textContent.trim() : ''));
+    });
+    var listText = header + '\n' + lines.join('\n');
+    var pre = document.getElementById(preId);
+    pre.textContent = listText;
+    var msg = document.getElementById(msgId);
+    document.getElementById(btnId).addEventListener('click', function () {
+      function selectIt() {
+        pre.hidden = false;
+        var r = document.createRange(); r.selectNodeContents(pre);
+        var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        msg.textContent = 'Selected. Press Copy (or \u2318C).';
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(listText).then(function () { msg.textContent = 'Copied!'; setTimeout(function () { msg.textContent = ''; }, 2500); }, selectIt);
+      } else selectIt();
+    });
+  }
+  copyList('#shopping .shop-grid li', 'plain-list', 'copy-shop', 'copy-msg', 'Amounts needed (check the pantry first):');
+  copyList('#extra .extra-list li', 'extra-list', 'copy-extra', 'copy-extra-msg', 'Extra for the second pecan pie (on top of the first list):');
 
   // Encrypted recipe PDFs: recipes/<name>.pdf.enc = salt16 | iv12 | AES-256-GCM(ciphertext+tag),
   // key = PBKDF2-SHA256("user:pass", salt, 150000).
